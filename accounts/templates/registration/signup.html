@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+<title>User Information</title>
+<style>
+form{ 
+    margin-top : 20px;
+    margin-left : 600px ;  
+    max-width : 400px ; 
+    border : 3px lightskyblue solid ;
+    border-radius:30px;
+    padding:20px  ;
+    box-shadow: 2px 2px 2px 2px cyan;
+
+}
+input { 
+    margin:0px;
+    padding : 0px
+}
+
+</style>
+{% endblock title %}
+{% block content %}
+<div id = "ktr">
+    <form  action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit">Register</button>
+    </form>
+</div>
+{% endblock content %}

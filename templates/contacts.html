@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Projects</title>
+<style>
+footer{ 
+    margin-top : 500px ; 
+}
+</style>
+{% endblock title %}
+
+{% block content %}
+<div>
+    <h1>{{title}}</h1>
+    <div class="cards-container" >
+        {% for contact in contacts %}
+        <div class="card">
+            <a href="{% url 'contact' contact_id=contact.id%}">
+                Details
+            </a>
+            <h3 cl>{{contact.name}}</h3>
+            <p style="max-height: 56px; overflow-y: hidden">{{contact.description}}</p>
+            <div style=" justify-content: space-between; margin-top: 12px">
+                <h4>{{contact.email}}</h4>
+                <h4>{{contact.phone}}  </h4>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock content %}

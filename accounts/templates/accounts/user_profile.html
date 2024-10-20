@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>User Information</title>
+
+{% endblock title %}
+
+{% block content %}
+<div id = "divaia">
+    <div>
+        <img src="{{ user.image.url }}" alt="">
+        <h3>Username</h3>
+        <p>{{user.username}}</p>
+    
+        <h3>Email</h3>
+        <p>{{user.email}}</p>
+    
+        <h3>Phone</h3>
+        <p>{{user.phone}}</p>
+        <a id = "zzzz"  href="{% url 'update_user'%}">Edit</a>
+
+    </div>
+
+
+</div>
+{% endblock content %}

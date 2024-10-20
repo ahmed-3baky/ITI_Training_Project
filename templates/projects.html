@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Projects</title>
+{% endblock title %}
+
+{% block content %}
+<div>
+    <div style="display: flex; justify-content: space-between; align-items: center">
+
+        <h1>{{title}}</h1>
+        <a href="{% url 'add_product' %}"
+           style="margin: 20px ;padding:18px 20px; border : 2px black dashed ;border-radius: 5px; background-color: lightskyblue; text-decoration: none;">Add
+            New Product</a>
+
+    </div>
+<div>
+    <h1>{{title}}</h1>
+    <div class="cards-container">
+        {% for project in projects %}
+        <div class="card">
+            <a href="{% url 'project' project_id=project.id%}">
+                <img src="{{project.get_absolute_url}}" alt="product">
+            </a>
+            <h3 cl>{{project.name}}</h3>
+            <p style="max-height: 56px; overflow-y: hidden">{{product.description}}</p>
+            <div style=" justify-content: space-between; margin-top: 12px">
+                <h4>{{project.technology}}</h4>
+                <h4>{{project.created_date}}  </h4>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock content %}

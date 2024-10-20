@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Homepage</title>
+{% endblock %}
+
+{% block content %}
+
+<div id = "ck">
+    <h1>Hi , i am {{my.name}} my age is : {{my.age}}</h1>
+    <h2> {{my.tl}} </h3>
+    <h3>{{my.exp}}+ years  </h3>
+    <h3> hello everybody this is my profile , this is an example to check if it works or not</h3>
+    <h3> now  what  ? i dont no </h3>
+    <br>
+    <h3 id = "ls"><a href="{% url 'contact' %}" > contact me </a></h3>
+
+</div>
+<img id = "ig1" src = "/static/images/1.jpg">
+{% endblock %}

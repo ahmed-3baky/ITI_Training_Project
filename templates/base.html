@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        {% block title %}
+        {% endblock title %}
+        <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        {% include "partials/nav.html" with logo="Shoppify" %}
+        <main>
+            {% block content %}
+            {% endblock content %}
+        </main>
+        {% include "partials/footer.html" %}
+    </body>
+</html>

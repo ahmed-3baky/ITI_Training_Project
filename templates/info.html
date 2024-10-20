@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Project Information</title>
+<style>
+    #yk {
+        margin-top: 50px;
+        margin-left: 550px;
+        margin-bottom:25px ; 
+        border: 2px LightSkyBlue solid;
+        max-width: 370px;
+        max-height: 750px;
+        border-radius: 25px;
+    }
+
+    #yk:hover {
+        border: 5px blue solid;
+    }
+
+    img {
+        margin-left:55px;
+        width: 250px;
+        height: 150px;
+        border: 2px rgb(11, 131, 171) dashed;
+        border-radius: 20px;
+    }
+
+    #tk {
+        margin-left: 75px;
+        margin-bottom: 25px;
+        font-size: large;
+        display: flex; /* Enable flexbox */
+        flex-direction: column; /* Align items in a column */
+    }
+
+    #tk a {
+        text-decoration: none;
+        border-radius: 4px;
+        padding: 4px 12px;
+        margin-right: 10px; /* Space between buttons */
+        color: white;
+        width: fit-content;
+    }
+
+    #tk .contact-btn {
+        background-color: lightgreen;
+    }
+
+    #tk .delete-btn {
+        background-color: red;
+    }
+
+    #tk .edit-btn {
+        background-color: yellow;
+        color: black; /* Ensure text is visible on yellow background */
+    }
+
+    h4 {
+        margin: 0px;
+    }
+
+    h1 {
+        margin-left: 95px;
+    }
+</style>
+{% endblock title %}
+
+{% block content %}
+<div>
+    <div id="yk">
+        <h1>{{ project.name }}</h1>
+        <img src="{{ project.get_absolute_url }}" alt="{{ project.description }}">
+        <div id="tk">
+            <h3>{{ project.name }}</h3>
+            <p>{{ project.description }}</p>
+
+            <h4>Date</h4>
+            <p>{{ project.created_date }}</p>
+
+            <h4>Technologies</h4>
+            <p>{{ project.technology }}</p>
+            <div id="button-group">
+                <a class="contact-btn" href="{% url 'project_contacts' project_id=project.id %}">Contacts</a>
+                <a class="delete-btn" href="{% url 'delete_project' project_id=project.id %}">Delete</a>
+                <a class="edit-btn" href="{% url 'edit_product' project_id=project.id %}">Edit</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

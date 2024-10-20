@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>ADD PROJECT</title>
+<style> 
+    h3{
+        text-align : center ; 
+    }
+    main { 
+        margin-top : 25px; 
+        margin-left : 500px;
+        margin-bottom : 30px;
+        border : 3px  lightskyblue solid ; 
+        border-radius : 20px ; 
+        max-width : 450px;
+    }
+    form div :hover { 
+        border : 4px lightblue solid ; 
+    }
+    form div {
+        margin-left : 50px;
+        padding: 16px;
+    }
+    
+    form div label {
+        margin-bottom: 10px;
+    }
+    
+    form button[type="submit"] {
+        padding: 8px 32px;
+        border-radius: 6px;
+        background-color: lightskyblue;
+        color: black;
+        margin : 10px ; 
+        margin-left: 150px ; 
+    }
+    
+    form div input, form div textarea, form div select  {
+        margin-top: 10px;
+        display: block;
+        width: 320px;
+        padding: 5px;
+        border-radius: 6px;
+    }
+    
+
+</style>
+{% endblock title %}
+
+
+{% block content %}
+<div>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h3>{{"Create New project"}}</h3>
+        {{form}}
+        <button type="submit">Create project</button>
+    </form>
+</div>
+{% endblock content %}
